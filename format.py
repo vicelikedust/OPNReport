@@ -40,7 +40,7 @@ def step_parse(args, doc):
     with get_progress_animation(args):
         parse_opnsense(args.input_path, doc)
     if not args.quiet:
-        print('\u268d Successfully parsed pfSense config version {}.'.format(doc.opnsense.version), file=sys.stderr)
+        print('\u268d Successfully parsed OPNSense config version {}.'.format(doc.opnsense.version), file=sys.stderr)
 
 def step_stdout(args, doc, output_func):
     if not args.quiet:
@@ -49,7 +49,7 @@ def step_stdout(args, doc, output_func):
         output_file = sys.stdout
         output_func(doc, output_file)
     if not args.quiet:
-        print('\u2630 Successfully outputted pfSense config as {}.'.format(args.output_format), file=sys.stderr)
+        print('\u2630 Successfully outputted OPNSense config as {}.'.format(args.output_format), file=sys.stderr)
 
 def step_file(args, doc, output_func):
     if not args.quiet:
@@ -58,7 +58,7 @@ def step_file(args, doc, output_func):
         with open(args.output_path, 'w+') as output_file:
             output_func(doc, output_file)
     if not args.quiet:
-        print('\u2630 Successfully outputted pfSense config as {}.'.format(args.output_format), file=sys.stderr)
+        print('\u2630 Successfully outputted OPNSense config as {}.'.format(args.output_format), file=sys.stderr)
 
 def main():
     args = parse_args()
