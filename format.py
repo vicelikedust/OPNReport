@@ -6,8 +6,8 @@ import yaml
 
 from markdown import output_markdown
 from bbcode import output_bbcode
-from parse import parse_pfsense
-from pfsense import PfSenseDocument
+from parse import parse_opnsense
+from opnsense import OpnSenseDocument
 from progress import Animation
 
 
@@ -38,9 +38,9 @@ def step_parse(args, doc):
     if not args.quiet:
         print('\u268b Parsing "{}" ...'.format(args.input_path), file=sys.stderr)
     with get_progress_animation(args):
-        parse_pfsense(args.input_path, doc)
+        parse_opnsense(args.input_path, doc)
     if not args.quiet:
-        print('\u268d Successfully parsed pfSense config version {}.'.format(doc.pfsense.version), file=sys.stderr)
+        print('\u268d Successfully parsed pfSense config version {}.'.format(doc.opnsense.version), file=sys.stderr)
 
 def step_stdout(args, doc, output_func):
     if not args.quiet:
@@ -62,7 +62,7 @@ def step_file(args, doc, output_func):
 
 def main():
     args = parse_args()
-    doc = PfSenseDocument()
+    doc = OpnSenseDocument()
     output_func = get_output_func(args)
 
     step_parse(args, doc)
