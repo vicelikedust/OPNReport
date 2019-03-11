@@ -40,8 +40,9 @@ def step_parse(args, doc):
     with get_progress_animation(args):
         parse_opnsense(args.input_path, doc)
     if not args.quiet:
-        print('\u268d Successfully parsed OPNSense config version {}.'.format(doc.opnsense.version), file=sys.stderr)
-
+        #print('\u268d Successfully parsed OPNSense config version {}.'.format(doc.opnsense.version), file=sys.stderr)
+        print('\u268d Successfully parsed OPNSense config.', file=sys.stderr)
+        
 def step_stdout(args, doc, output_func):
     if not args.quiet:
         print('\u2631 Outputting to stdout ...', file=sys.stderr)

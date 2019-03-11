@@ -104,7 +104,7 @@ def output_bbcode_table(stream, header, rows):
 
 def output_bbcode(doc, stream):
     stream.write(h1("OPNSense\n"))
-    stream.write("Version {}\n".format(doc.opnsense.version))
+    #stream.write("Version {}\n".format(doc.opnsense.version))
     stream.write("\n")
 
     stream.write(h2("System\n"))

@@ -396,7 +396,7 @@ class OpnSenseSystem(OpnSenseNode):
     _dnsserver = OpnSenseString
 
 class OpnSenseConfig(OpnSenseNode):
-    _version = OpnSenseString
+    #_version = OpnSenseString
     _system = OpnSenseSystem
     _interfaces = OpnSenseInterfaces
     _vlans = OpnSenseVlans
