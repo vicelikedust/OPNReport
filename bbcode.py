@@ -139,8 +139,8 @@ def output_bbcode(doc, stream):
 
     if hasattr_r(doc.opnsense, 'staticroutes.route'):
         stream.write(h2("Static routes\n"))
-        routes = [obj_to_list(route, ('network', 'gateway', 'descr')) for route in doc.opnsense.staticroutes.route]
-        output_bbcode_table(stream, ('Network', 'Gateway', 'Description'), routes)
+        routes = [obj_to_list(route, ('disabled', 'network', 'gateway', 'descr')) for route in doc.opnsense.staticroutes.route]
+        output_bbcode_table(stream, ('Disabled', 'Network', 'Gateway', 'Description'), routes)
         stream.write("\n")
 
     if hasattr_r(doc.opnsense, 'dhcpd'):

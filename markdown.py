@@ -110,8 +110,8 @@ def output_markdown(doc, stream):
 
     if hasattr_r(doc.opnsense, 'staticroutes.route'):
         stream.write("## Static routes\n")
-        routes = [obj_to_list(route, ('network', 'gateway', 'descr')) for route in doc.opnsense.staticroutes.route]
-        output_markdown_table(stream, ('Network', 'Gateway', 'Description'), routes)
+        routes = [obj_to_list(route, ('disabled', 'network', 'gateway', 'descr')) for route in doc.opnsense.staticroutes.route]
+        output_markdown_table(stream, ('Disabled', 'Network', 'Gateway', 'Description'), routes)
         stream.write("\n")
 
     if hasattr_r(doc.opnsense, 'dhcpd'):

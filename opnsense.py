@@ -342,6 +342,7 @@ class OpnSenseRoute(OpnSenseNode):
     _network = OpnSenseString
     _gateway = OpnSenseString
     _descr = OpnSenseString
+    _disabled = OpnSenseFlag
 
 class OpnSenseStaticRoutes(OpnSenseNode):
     _route = [OpnSenseRoute]
