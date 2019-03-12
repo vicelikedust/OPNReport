@@ -71,9 +71,14 @@ class OpnSenseInterfacesNode(OpnSenseNode):
         return super().__getattribute__(name)
 
 class OpnSenseFlag(OpnSenseNode):
+    def __call__(self, content):
+        self.value = int(content)
     @property
     def data(self):
-        return True
+        if self.value is 0:
+            return None
+        else:
+            return True
 
 class OpnSenseAliasString(OpnSenseString):
     @property
