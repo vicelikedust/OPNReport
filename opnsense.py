@@ -79,8 +79,8 @@ class OpnSenseAliasString(OpnSenseString):
     @property
     def data(self):
         data = super().data
-        if hasattr_r(self.rootdoc.opnsense, 'aliases.alias'):
-            for alias in self.rootdoc.opnsense.aliases.alias:
+        if hasattr_r(self.rootdoc.opnsense, 'OPNsense.Firewall.Alias.aliases.alias'):
+            for alias in self.rootdoc.opnsense.OPNsense.Firewall.Alias.aliases.alias:
                 if alias.name.string == data:
                     return {'alias': alias.data}
         return data
@@ -137,8 +137,8 @@ class OpnSenseRuleAlias(OpnSenseString):
             if interface_name == alias_name:
                 interface_data['name'] = data
                 return {'interface': interface_data}
-        if hasattr_r(self.rootdoc.opnsense, 'aliases.alias'):
-            for alias in self.rootdoc.opnsense.aliases.alias:
+        if hasattr_r(self.rootdoc.opnsense, 'OPNsense.Firewall.Alias.aliases.alias'):
+            for alias in self.rootdoc.opnsense.OPNsense.Firewall.Alias.aliases.alias:
                 if alias.name.string == data:
                     return {'alias': alias.data}
         return data
@@ -235,12 +235,21 @@ class OpnSenseNat(OpnSenseNode):
 class OpnSenseAlias(OpnSenseNode):
     _name = OpnSenseString
     _type = OpnSenseString
-    _address = OpnSenseString
+    _content = OpnSenseString
     _descr = OpnSenseString
     _detail = OpnSenseString
 
 class OpnSenseAliases(OpnSenseNode):
     _alias = [OpnSenseAlias]
+
+class OpnSenseFirewallAlias(OpnSenseNode):
+    _aliases = OpnSenseAliases
+
+class OpnSenseFirewall(OpnSenseNode):
+    _Alias = OpnSenseFirewallAlias
+
+class OpnSenseOPNsense(OpnSenseNode):
+    _Firewall = OpnSenseFirewall
 
 class OpnSenseDnsMasqDomainOverride(OpnSenseNode):
     _domain = OpnSenseString
@@ -403,7 +412,7 @@ class OpnSenseConfig(OpnSenseNode):
     _bridges = OpnSenseBridges
     _gateways = OpnSenseGateways
     _staticroutes = OpnSenseStaticRoutes
-    _aliases = OpnSenseAliases
+    _OPNsense = OpnSenseOPNsense
     _nat = OpnSenseNat
     _filter = OpnSenseFilter
     _dnsmasq = OpnSenseDnsMasq

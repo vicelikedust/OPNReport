@@ -16,8 +16,8 @@ def format_rule_interface(rule_interface):
 def format_rule_alias(rule_alias):
     if isinstance(rule_alias, dict):
         if 'alias' in rule_alias:
-            if 'address' in rule_alias['alias']:
-                rule_alias = '[{name}](#aliases "{address}")'.format(**rule_alias['alias'])
+            if 'content' in rule_alias['alias']:
+                rule_alias = '[{name}](#aliases "{content}")'.format(**rule_alias['alias'])
             else:
                 rule_alias = rule_alias['alias']['name']
         elif 'interface' in rule_alias:
@@ -136,10 +136,10 @@ def output_markdown(doc, stream):
                 stream.write("\n")
         stream.write("\n")
 
-    if hasattr_r(doc.opnsense, 'aliases.alias'):
+    if hasattr_r(doc.opnsense, 'OPNsense.Firewall.Alias.aliases.alias'):
         stream.write("## Aliases\n")
-        aliases = [obj_to_list(alias, ('name', 'type', 'address', 'descr', 'detail')) for alias in doc.opnsense.aliases.alias]
-        output_markdown_table(stream, ('Name', 'Type', 'Address', 'Description', 'Detail'), aliases)
+        aliases = [obj_to_list(alias, ('name', 'type', 'content', 'descr', 'detail')) for alias in doc.opnsense.OPNsense.Firewall.Alias.aliases.alias]
+        output_markdown_table(stream, ('Name', 'Type', 'Content', 'Description', 'Detail'), aliases)
         stream.write("\n")
 
     if hasattr_r(doc.opnsense, 'nat.rule'):
