@@ -1,8 +1,6 @@
-![pfFocus](logos/pfFocus.png)
+![OPNReport](logos/OPNReport.png)
 
-# pfFocus
-
-[![Build Status](https://travis-ci.org/TKCERT/pfFocus.svg?branch=master)](https://travis-ci.org/TKCERT/pfFocus)
+# OPNReport
 
 This simple tool allows you to convert a full configuration backup of a *pf*Sense firewall into some meaningful output format, like Markdown or YAML. It enables you to **focus** on the important parts of your firewall configuration and allows you to get a quick overview of the most important settings.
 
@@ -29,7 +27,7 @@ or
 
 ## Features
 
-pfFocus currently supports the following configuration sections:
+OPNReport currently supports the following configuration sections:
 
 * Basic system information
 * List of interfaces, VLANs, bridges, gateways and static mappings
@@ -88,7 +86,7 @@ pffocus < input.xml > output.md
 
 ## Roadmap
 
-Some ideas for the future development of pfFocus:
+Some ideas for the future development of OPNReport:
 
 * Producing additional output formats, especially structured formats like CSV.
 * Using these structured formats to enable easy diff'ing of configurations.
