@@ -6,13 +6,9 @@ This simple tool allows you to convert a full configuration backup of a *pf*Sens
 
 ## Requirements
 
-* Python 3.5+
+* Python 3.6+
     * defusedxml==0.5.0
-    * PyYAML==3.12
-
-or
-
-* Docker
+    * PyYAML==5.4
 
 ## Screenshots
 
@@ -39,43 +35,52 @@ OPNReport currently supports the following configuration sections:
 * OpenVPN server and client configurations
 * Syslog and sysctl configuration
 
+## Installation
+
+Install into existing Python environment:
+```bash
+pip install git+https://github.com/AndyX90/OPNReport.git#egg=OPNReport
+```
+
+Combine this with `--user` or `pipx` or `pipenv` for isolated installation.
+
 ## Usage
 
-Main formatting tool: ```format.py```
-```
-format.py
-```
-
-Examples:
-```
-./format.py -i config-backup.xml -f md -o test.md
-./format.py -i config-backup.xml -f yaml -o test.yaml
-```
-
-Test parsing tool: ```parse.py```
-```
-parse.py [-h] input_path
+Main formatting tool: ```opn-format```
+```bash
+opn-format
 ```
 
 Examples:
-```
-./parse.py config-backup.xml
+```bash
+./opn-format -i config-backup.xml -f md -o test.md
+./opn-format -i config-backup.xml -f yaml -o test.yaml
 ```
 
-### Usage with Docker
+Test parsing tool: ```opn-parse```
+```bash
+opn-parse [-h] input_path
+```
+
+Examples:
+```bash
+./opn-parse config-backup.xml
+```
+
+### Usage via Docker
 
 When using pfFocus via Docker, you don't need to download it from Github, and you don't need to install Python or any libraries. Only Docker is required.
 
-It runs this command inside Docker: `./format.py -q -f md -i - -o -`, which means it works with `STDIN` and `STDOUT` instead of files.
+It runs this command inside Docker: `./opn-format -q -f md -i - -o -`, which means it works with `STDIN` and `STDOUT` instead of files.
 
 ```bash
-docker run --rm -i hugojosefson/pffocus < input.xml > output.md
+docker run --rm -i hghcr.io/tkcert/pffocus < input.xml > output.md
 ```
 
 If you want you can set up an alias for it in bash:
 
 ```bash
-alias pffocus="docker run --rm -i hugojosefson/pffocus"
+alias pffocus="docker run --rm -i ghcr.io/tkcert/pffocus"
 ```
 
 Then you can use it like a normal Unix command, with pipes and redirects:

@@ -1,10 +1,10 @@
-FROM python:3.5
+FROM python:3-alpine
 
-RUN mkdir /app
+COPY ./ /app
 WORKDIR /app
 
-COPY requirements.txt ./
-RUN pip install -r requirements.txt
+RUN pip install -r /app/requirements.txt
+RUN pip install /app
 
-COPY *.py ./
-CMD ./format.py -q -f md -i - -o -
+ENTRYPOINT ["/usr/local/bin/opnreport-format"]
+CMD ["-q", "-f", "md", "-i", "-", "-o", "-"]

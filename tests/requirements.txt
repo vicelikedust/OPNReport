@@ -1,10 +1,9 @@
--i https://pypi.org/simple
-astroid==2.1.0
-coverage==5.0a4
-isort==4.3.4
-lazy-object-proxy==1.3.1
+-i https://pypi.org/simple/
+astroid==2.3.3
+coverage==4.5.4
+isort==4.3.21
+lazy-object-proxy==1.4.3
 mccabe==0.6.1
-pylint==2.2.2
-six==1.12.0
-typed-ast==1.2.0 ; python_version < '3.7' and implementation_name == 'cpython'
-wrapt==1.11.0
+pylint==2.4.2
+six==1.15.0
+wrapt==1.11.2

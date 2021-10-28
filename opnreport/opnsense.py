@@ -408,7 +408,7 @@ class OpnSenseSystem(OpnSenseNode):
     _timeservers = OpnSenseString
     _timezone = OpnSenseString
     _language = OpnSenseString
-    _dnsserver = OpnSenseString
+    _dnsserver = [OpnSenseString]
 
 class OpnSenseConfig(OpnSenseNode):
     #_version = OpnSenseString

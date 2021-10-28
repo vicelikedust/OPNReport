@@ -1,0 +1,12 @@
+__pycache__
+.coverage
+.vscode
+*.egg-info
+test.*
+
+.git
+.dockerignore
+Dockerfile
+
+logos
+screenshots 

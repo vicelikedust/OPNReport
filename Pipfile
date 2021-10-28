@@ -6,10 +6,11 @@ name = "pypi"
 [packages]
 defusedxml = "==0.5.0"
 pyyaml = ">=4.2b1"
+opnreport = {editable = true,path = "."}
 
 [dev-packages]
 coverage = "*"
 pylint = "*"
 
 [requires]
-python_version = "3.6"
+python_version = "3"
